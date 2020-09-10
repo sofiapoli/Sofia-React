@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ConditionalSection from './sections/conditionals'
-import './App.css';
+import './App.css'
 
 
 /* inicializando el estado mediante props */

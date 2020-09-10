@@ -1,37 +1,40 @@
 import React, { Component } from 'react'
 import { render } from '@testing-library/react'
 
-class ComponenteA extends Component {
+  /* Renderizado */
+class LoginButton extends Component {
     render() {
-        return <p> Componente A </p>
+        return <button> Iniciar Sesion </button>
     }
 }
 
-class ComponenteB extends Component {
+class LogoutButton extends Component {
     render() {
-        return <p> Componente B </p>
+        return (
+            <div>
+                <p> Bienvenido Usuario!</p>
+                <button> Cerrar Sesion </button>
+            </div>
+        )
     }
 }
 
-function useConditionalRendering (mostrarA){
-    if (mostrarA){
-        return <ComponenteA/>
-    }
-        return <ComponenteB />
-}
 
 export default class ConditionalSections extends Component {
     constructor(){
         super()
-        this.state = {mostrarA: true}
+        this.state = {isUserLogged: true}
     }
     render (){
-        const conditionalComponent = useConditionalRendering(this.state.mostrarA)
+        
+
         return (
             <div> 
               <h4> Conditional Rendering </h4>
-              {conditionalComponent}
-
+             { this.state.isUserLogged 
+                 ? <LoginButton /> 
+                 : <LogoutButton/>
+             }
              </div>
         )
     }
